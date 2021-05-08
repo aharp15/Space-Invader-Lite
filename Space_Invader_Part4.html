@@ -80,6 +80,10 @@
         if (e.key == "ArrowDown") {
           downPressed = true;
         }
+        
+        if (e.key == " ") {
+          shoot();
+        }
       }
       //Next we need to do something similar
       //We need to set the variables back to false,
@@ -141,7 +145,7 @@
         //Then once we have the values created we put them into our enemies array
         for (var i = 0; i < 20; i++) {
           var eX = Math.floor(Math.random() * 700 - w);
-          var eY = Math.floor(Math.random() * 400 - w);
+          var eY = -eW;
           enemies[i] = {x: eX, y: eY, w: eW };
         }
       }
@@ -199,6 +203,7 @@
         moveCircle();
         drawCircle(x, y, w);
 
+        bulletMove();
         drawEnemies();
 
         requestAnimationFrame(draw);
